@@ -19,8 +19,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore ./2-SeleniumIDE/SeleniumIDE/SeleniumIDE.csproj
+      run: dotnet restore ./2-SeleniumIDE/SeleniumIde.sln
     - name: Build
-      run: dotnet build --no-restore ./2-SeleniumIDE/SeleniumIDE/SeleniumIDE.csproj
+      run: dotnet build --no-restore ./2-SeleniumIDE/SeleniumIde.sln
     - name: Run Selenium UI tests
-      run: dotnet test ./2-SeleniumIDE/SeleniumIDE/SeleniumIDE.csproj --no-build --verbosity normal
+      run: dotnet test ./2-SeleniumIDE/SeleniumIde.sln --no-build --verbosity normal
