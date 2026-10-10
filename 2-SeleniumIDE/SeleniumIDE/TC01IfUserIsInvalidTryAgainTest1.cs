@@ -14,15 +14,17 @@ using NUnit.Framework;
 [TestFixture]
 public class TC01IfUserIsInvalidTryAgainTest
 {
+    private ChromeOptions options;
     private IWebDriver driver;
     public IDictionary<string, object> vars { get; private set; }
-    private IJavaScriptExecutor js;
 
     [SetUp]
     public void SetUp()
     {
-        driver = new ChromeDriver();
-        js = (IJavaScriptExecutor)driver;
+        options = new ChromeOptions();
+        options.AddArguments("--headless");
+        driver = new ChromeDriver(options);
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         vars = new Dictionary<string, object>();
     }
 
@@ -30,6 +32,7 @@ public class TC01IfUserIsInvalidTryAgainTest
     protected void TearDown()
     {
         driver.Quit();
+        driver.Dispose();
     }
 
     [Test]
@@ -58,23 +61,26 @@ public class TC01IfUserIsInvalidTryAgainTest
         // 10 | storeText | css=*[data-test="error"] | errorMessage
         vars["errorMessage"] = driver.FindElement(By.CssSelector("*[data-test=\"error\"]")).Text;
         // 11 | if |  ${errorMessage} === "Epic sadface: Username and password do not match any user in this service" | 
-        if ((Boolean)js.ExecuteScript("return (arguments[0] === \'Epic sadface: Username and password do not match any user in this service\')", vars["errorMessage"]))
-        {
-            // 12 | echo | Wrong username | 
-            Console.WriteLine("Wrong username");
-            // 13 | click | css=*[data-test="username"] | 
-            driver.FindElement(By.CssSelector("*[data-test=\"username\"]")).Clear();
-            // 14 | type | css=*[data-test="username"] | standard_user
-            driver.FindElement(By.CssSelector("*[data-test=\"username\"]")).SendKeys("standard_user");
-            // 15 | click | css=*[data-test="login-button"] | 
-            driver.FindElement(By.CssSelector("*[data-test=\"login-button\"]")).Click();
-            // 16 | assertText | css=*[data-test="title"] | Products
-            Assert.That(driver.FindElement(By.CssSelector("*[data-test=\"title\"]")).Text, Is.EqualTo("Products"));
-            // 17 | echo | Successful login  | 
-            Console.WriteLine("Successful login ");
-            // 18 | end |  | 
-        }
-        // 19 | close |  | 
-        driver.Close();
+        Assert.That(
+            vars["errorMessage"],
+            Is.EqualTo("Epic sadface: Username and password do not match any user in this service"),
+            "The invalid login should be rejected before retrying.");
+
+        // 12 | echo | Wrong username | 
+        Console.WriteLine("Wrong username");
+        // 13 | click | css=*[data-test="username"] | 
+        var usernameInput = driver.FindElement(By.CssSelector("*[data-test=\"username\"]"));
+        usernameInput.Clear();
+        // 14 | type | css=*[data-test="username"] | standard_user
+        usernameInput.SendKeys("standard_user");
+        var passwordInput = driver.FindElement(By.CssSelector("*[data-test=\"password\"]"));
+        passwordInput.Clear();
+        passwordInput.SendKeys("secret_sauce");
+        // 15 | click | css=*[data-test="login-button"] | 
+        driver.FindElement(By.CssSelector("*[data-test=\"login-button\"]")).Click();
+        // 16 | assertText | css=*[data-test="title"] | Products
+        Assert.That(driver.FindElement(By.CssSelector("*[data-test=\"title\"]")).Text, Is.EqualTo("Products"));
+        // 17 | echo | Successful login  | 
+        Console.WriteLine("Successful login ");
     }
 }
