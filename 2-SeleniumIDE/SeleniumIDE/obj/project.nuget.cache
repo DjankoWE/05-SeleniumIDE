@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rGdVIp6pDgg=",
+  "dgSpecHash": "MTMzEH/nSuQ=",
   "success": true,
-  "projectFilePath": "/Users/djany/Programming/DevOps/08-Exercise-CI-CD-GitHub-Actions-Resources/05-SeleniumIDE/2-SeleniumIDE/SeleniumIDE/SeleniumIde.csproj",
+  "projectFilePath": "/Users/djany/Programming/DevOps/10-Exercise-CI-CD-Jenkins-Resources/05-SeleniumIDE/05-SeleniumIDE/2-SeleniumIDE/SeleniumIDE/SeleniumIde.csproj",
   "expectedPackageFiles": [
     "/Users/djany/.nuget/packages/coverlet.collector/3.1.2/coverlet.collector.3.1.2.nupkg.sha512",
     "/Users/djany/.nuget/packages/microsoft.codecoverage/17.1.0/microsoft.codecoverage.17.1.0.nupkg.sha512",

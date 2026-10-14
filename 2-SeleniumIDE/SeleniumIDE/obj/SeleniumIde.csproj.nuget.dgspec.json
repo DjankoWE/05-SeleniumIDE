@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/djany/Programming/DevOps/08-Exercise-CI-CD-GitHub-Actions-Resources/05-SeleniumIDE/2-SeleniumIDE/SeleniumIDE/SeleniumIde.csproj": {}
+    "/Users/djany/Programming/DevOps/10-Exercise-CI-CD-Jenkins-Resources/05-SeleniumIDE/05-SeleniumIDE/2-SeleniumIDE/SeleniumIDE/SeleniumIde.csproj": {}
   },
   "projects": {
-    "/Users/djany/Programming/DevOps/08-Exercise-CI-CD-GitHub-Actions-Resources/05-SeleniumIDE/2-SeleniumIDE/SeleniumIDE/SeleniumIde.csproj": {
+    "/Users/djany/Programming/DevOps/10-Exercise-CI-CD-Jenkins-Resources/05-SeleniumIDE/05-SeleniumIDE/2-SeleniumIDE/SeleniumIDE/SeleniumIde.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/djany/Programming/DevOps/08-Exercise-CI-CD-GitHub-Actions-Resources/05-SeleniumIDE/2-SeleniumIDE/SeleniumIDE/SeleniumIde.csproj",
+        "projectUniqueName": "/Users/djany/Programming/DevOps/10-Exercise-CI-CD-Jenkins-Resources/05-SeleniumIDE/05-SeleniumIDE/2-SeleniumIDE/SeleniumIDE/SeleniumIde.csproj",
         "projectName": "SeleniumIde",
-        "projectPath": "/Users/djany/Programming/DevOps/08-Exercise-CI-CD-GitHub-Actions-Resources/05-SeleniumIDE/2-SeleniumIDE/SeleniumIDE/SeleniumIde.csproj",
+        "projectPath": "/Users/djany/Programming/DevOps/10-Exercise-CI-CD-Jenkins-Resources/05-SeleniumIDE/05-SeleniumIDE/2-SeleniumIDE/SeleniumIDE/SeleniumIde.csproj",
         "packagesPath": "/Users/djany/.nuget/packages/",
-        "outputPath": "/Users/djany/Programming/DevOps/08-Exercise-CI-CD-GitHub-Actions-Resources/05-SeleniumIDE/2-SeleniumIDE/SeleniumIDE/obj/",
+        "outputPath": "/Users/djany/Programming/DevOps/10-Exercise-CI-CD-Jenkins-Resources/05-SeleniumIDE/05-SeleniumIDE/2-SeleniumIDE/SeleniumIDE/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/djany/.nuget/NuGet/NuGet.Config"
